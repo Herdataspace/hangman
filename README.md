@@ -8,7 +8,7 @@ This is an implementation of the Hangman game, where the computer thinks of a wo
 - GitHub was set-up in this project to track changes to the code and save the changes in the GitHub repo. A GitHub repo was first created, which was then cloned locally using the following terminal command:
 
 ```python
-""" git clone https://github.com/Herdataspace/hangman.git """
+git clone https://github.com/Herdataspace/hangman.git
 ```
 
 ## Milestone 2
