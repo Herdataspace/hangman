@@ -44,3 +44,53 @@ else:
     print('Oops! That is not a valid input.')
 ```
 
+## Milestone 3
+
+- Following on from the previous milestone, a **while loop** is created to iteratively check if the input is a valid guess. The code will run until a valid guess (single letter) is inputted.
+
+```python
+while True:
+        guess = input('Guess a letter ').lower()
+        if guess.isalpha() and len(guess) == 1:
+            break
+        else:
+            print("Invalid letter. Please, enter a single alphabetical character.")
+```
+
+- Another check is then created to check if the letter guessed is in the secret word, using **if-else statements**.  
+
+```python
+if guess in word:
+        print(f"Good guess! {guess} is in the word.")
+    else:
+        print(f"Sorry! {guess} is not in the word.")
+```
+
+- Functions help to organise the code to better understand which blocks of code do what. The code written is added into two functions:
+
+```python
+def check_guess(guess):
+    if guess in word:
+        print(f"Good guess! {guess} is in the word.")
+    else:
+        print(f"Sorry! {guess} is not in the word.")
+```
+
+``` python
+def ask_for_input():
+    while True:
+        guess = input('Guess a letter ').lower()
+        if guess.isalpha() and len(guess) == 1:
+            break
+        else:
+            print("Invalid letter. Please, enter a single alphabetical character.")
+    check_guess(guess)
+
+ask_for_input()
+```
+
+- The **check_guess** function is called in the **ask_for_input** function, with the **guess** variable as the argument. The **ask_for_input** function is then called outside both functions, which in turn, will run both functions. This checks the guess as a valid input, and checks whether the guess is in the word. 
+
+
+
+
