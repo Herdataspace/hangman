@@ -33,6 +33,12 @@ class Hangman():
     def check_guess(self, guess):
         if guess.lower() in self.word:
             print(f"Good guess! {guess.lower()} is in the word.")
+            for index, item in enumerate(self.word):
+                if guess.lower() == item:
+                    self.word_guessed[index] = guess     
+                else:
+                    pass
+            self.num_letters -= 1
 
     def ask_for_input(self):
         while True:
@@ -46,7 +52,5 @@ class Hangman():
                 self.list_of_guesses.append(guess)
                 break
 
-
-
-
-
+test = Hangman(word_list)
+test.ask_for_input()
