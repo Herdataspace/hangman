@@ -24,6 +24,7 @@ class Hangman():
             self.num_lives -= 1
             print(f'Sorry, {guess.lower()} is not in the word.')
             print(f' You have {self.num_lives} lives left.')
+            
         
 
     def ask_for_input(self):
@@ -42,8 +43,9 @@ def play_game(word_list):
     num_lives = 4
     game = Hangman(word_list, num_lives)
     while True:
-        if num_lives == 0:
+        if game.num_lives == 0:
             print("You lost!")
+            break
         elif game.num_letters > 0:
             game.ask_for_input()
         else:
