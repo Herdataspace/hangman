@@ -173,3 +173,41 @@ else:
 ```
 
 <br>
+
+## Milestone 5
+
+- To play the game, a function called **play_game()** is defined which codes the logic of the game. 
+- This function takes **word_list** as a parameter, and has **num_lives** as a variable. 
+
+```python
+def play_game(word_list):
+    num_lives = 5
+```
+- An instance of the Hangman class is created and assigned to the variable **game**, with word_list and num_lives as arguments to the game object.
+
+```python
+game = Hangman(word_list, num_lives)
+```
+- **If-else statements**, within a **while true** loop, check whether the player has won or lost, and whether to keep playing or terminate the game:
+
+    - If num_lives is 0, the player has lost and it terminates the game.
+    - If num_letters is > 0, it continues the game.
+    - If num_lives is not 0, and num_letters is not > 0, the player has won and it terminates the hame.
+
+```python
+while True:
+        if game.num_lives == 0:
+            print("You lost!")
+            break
+        elif game.num_letters > 0:
+            game.ask_for_input()
+        else:
+            print("Congratulations. You won the game!")
+            break
+```
+
+- Appropriate break points are needed, when the player wins or loses, to prevent an infinite loop! 
+
+- Finally to play the game, the **play_game()** function is called, with the word_list passed as the argument!
+
+<br>
