@@ -11,14 +11,17 @@ class Hangman():
         self.word_guessed = list(len(self.word)*'_')
         self.num_letters = len(set(self.word))
         self.list_of_guesses = []
+        print(f'The mistery word has {self.num_letters} characters.', '\n', f'{self.word_guessed}')
 
     def check_guess(self, guess):
-        if guess.lower() in self.word:
-            print(f"Good guess! {guess.lower()} is in the word.")
+        guess = guess.lower()
+        if guess in self.word:
+            print(f"Good guess! {guess} is in the word.")
             for index, item in enumerate(self.word):
-                if guess.lower() == item:
-                    self.word_guessed[index] = guess.lower()
-            self.num_letters -= 1    
+                if guess == item:
+                    self.word_guessed[index] = guess
+            print(self.word_guessed)
+            self.num_letters -= 1
                 
         else:
             self.num_lives -= 1
@@ -44,7 +47,7 @@ def play_game(word_list):
     game = Hangman(word_list, num_lives)
     while True:
         if game.num_lives == 0:
-            print("You lost!")
+            print(f"You lost! The word was {game.word}.")
             break
         elif game.num_letters > 0:
             game.ask_for_input()
