@@ -11,6 +11,49 @@ class Hangman():
         self.word_guessed = list(len(self.word)*'_')
         self.num_letters = len(set(self.word))
         self.list_of_guesses = []
+        self.list_visuals = [
+            '''
+            __________
+              |     |
+              |     O
+              |   \ | /
+              |     |
+              |    / \\
+            __|________
+            ''', '''
+            __________
+              |     |
+              |     O
+              |   \ | /
+              |     |
+              |    
+            __|________
+            ''', '''
+            __________
+              |     |
+              |     O
+              |   \ | /
+              |     
+              |    
+            __|________
+            ''', '''
+            __________
+              |     |
+              |     O
+              |     | 
+              |     
+              |    
+            __|________
+            ''', '''
+            __________
+              |     |
+              |     O
+              |   
+              |     
+              |    
+            __|________
+            ''']
+
         print(f'The mistery word has {self.num_letters} characters.', '\n', f'{self.word_guessed}')
 
     def check_guess(self, guess):
@@ -26,10 +69,9 @@ class Hangman():
         else:
             self.num_lives -= 1
             print(f'Sorry, {guess.lower()} is not in the word.')
-            print(f' You have {self.num_lives} lives left.')
-            
+            print(f'You have {self.num_lives} lives left.')
+            print(self.list_visuals[self.num_lives])
         
-
     def ask_for_input(self):
         while True:
             guess = input('Guess a letter ')
@@ -43,7 +85,8 @@ class Hangman():
                 break
 
 def play_game(word_list):
-    num_lives = 4
+    num_lives = 5
+
     game = Hangman(word_list, num_lives)
     while True:
         if game.num_lives == 0:
