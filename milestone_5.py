@@ -1,6 +1,4 @@
 import random
-word_list = ['strawberries', 'raspberries', 'apples', 'bananas', 'cherries']
-word = random.choice(word_list)
 
 class Hangman():
 
@@ -84,6 +82,8 @@ class Hangman():
                 self.list_of_guesses.append(guess)
                 break
 
+word_list = ['strawberries', 'raspberries', 'apples', 'bananas', 'cherries']
+
 def play_game(word_list):
     num_lives = 5
 
@@ -99,5 +99,3 @@ def play_game(word_list):
             break
 
 play_game(word_list)
-
-
